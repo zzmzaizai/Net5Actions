@@ -35,6 +35,6 @@ jobs:
     - name: Run
       env:
         Configuration: ${{ github.event.client_payload.Configuration || secrets.Configuration }}
-      run: dotnet run -p ./src/SpiderTask.ConsoleApp $env:Configuration
+      run: dotnet run -p ./src/SpiderTask.ConsoleApp -closeConsoleWhenEnd=1 ${{env:Configuration}}
 
           
