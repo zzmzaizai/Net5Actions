@@ -6,7 +6,7 @@ namespace SpiderTask.ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World! args:{0}", string.Join(',', args));
+            Console.WriteLine("Hello World! args:{0} {1}", string.Join(',', args),args.Length);
         }
 
 
