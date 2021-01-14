@@ -2,12 +2,12 @@ name: Spider-Task
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
-  workflow_dispatch: # ÊÖ¶¯´¥·¢
-  schedule: # ¼Æ»®ÈÎÎñ´¥·¢
-    - cron: '*/1 * * * *' # cron±í´ïÊ½£¬ActionsÊ±ÇøÊÇUTCÊ±¼ä
+    branches: [ main ]
+  workflow_dispatch: # æ‰‹åŠ¨è§¦å‘
+  schedule: # è®¡åˆ’ä»»åŠ¡è§¦å‘
+    - cron: '*/1 * * * *' # cronè¡¨è¾¾å¼ï¼ŒActionsæ—¶åŒºæ˜¯UTCæ—¶é—´
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       
-    # ÉèÖÃ·şÎñÆ÷Ê±ÇøÎª¶«°ËÇø 
+    # è®¾ç½®æœåŠ¡å™¨æ—¶åŒºä¸ºä¸œå…«åŒº 
     - name: Set time zone
       run: sudo timedatectl set-timezone 'Asia/Shanghai'
     
@@ -35,6 +35,6 @@ jobs:
     - name: Run
       env:
         Configuration: ${{ github.event.client_payload.CONFIGURATION || secrets.CONFIGURATION }}
-      run: dotnet run -p ./src/SpiderTask.ConsoleApp -closeConsoleWhenEnd=1 ${{secrets.CONFIGURATION}} ${{env.Configuration}}
+      run: dotnet run -p ./src/SpiderTask.ConsoleApp ${{ github.event.client_payload.CONFIGURATION || secrets.CONFIGURATION }}
 
           
