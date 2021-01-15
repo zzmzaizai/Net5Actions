@@ -35,8 +35,8 @@ jobs:
     - name: Run
       env:
         Configuration: ${{ github.event.client_payload.CONFIGURATION || secrets.CONFIGURATION }}
-        Test1: ${{ github.event.client_payload.TEST1 || secrets.TEST1 }}
-        Test2: ${{ github.event.client_payload.TEST2 || secrets.TEST2 }}
-      run: dotnet run -p ./src/SpiderTask.ConsoleApp ${{ github.event.client_payload.CONFIGURATION || secrets.CONFIGURATION }}
+        Config_Test1: ${{ github.event.client_payload.TEST1 || secrets.TEST1 }}
+        Config_Test2: ${{ github.event.client_payload.TEST2 || secrets.TEST2 }}
+      run: dotnet run -p ./src/SpiderTask.ConsoleApp env:Configuration
 
           

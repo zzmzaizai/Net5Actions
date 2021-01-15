@@ -23,7 +23,11 @@ namespace SpiderTask.ConsoleApp
 
             foreach (DictionaryEntry item in Environment.GetEnvironmentVariables())
             {
-                Console.WriteLine("{0}:{1}", item.Key, item.Value);
+                if(item.Key.ToString().StartsWith("Config_", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    Console.WriteLine("{0}:{1}", item.Key, item.Value);
+                }
+               
             }
              
 
