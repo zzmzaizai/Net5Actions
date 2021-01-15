@@ -9,9 +9,9 @@ namespace SpiderTask.ConsoleApp
             var cs = "";
             foreach(var c in string.Join('-', args).ToCharArray())
             {
-                cs = c + cs;
+                cs += $" [{c}]";
             }
-            Console.WriteLine("Hello World! args 倒过来:{0} {1}", cs, cs.Length);
+            Console.WriteLine("Hello World! args:{0} {1}", cs, cs.Length);
             //Console.WriteLine("Hello World! args:{0} {1}", string.Join(',', args).ToCharArray().,args.Length);
         }
 
